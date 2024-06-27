@@ -1,14 +1,9 @@
 from django.db import models
 
 # Create your models here.
-class Review(models.Model):
-    title=models.CharField(max_length=50)
-    content=models.TextField()
-    updated_at=models.DateTimeField(auto_now=True)
-
-class ModelParameter(models.Model):
+class ModelTarget(models.Model):
     modelname=models.CharField(max_length=50)
-    parameter=models.TextField()
+    target=models.TextField()
     result=models.TextField(null=True)
     csv_file=models.FileField(upload_to='csv_files/',null=True,blank=True)
-    updated_at=models.DateTimeField(auto_now=True)
+    original_filename = models.CharField(max_length=255, blank=True, null=True)
